@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+## 📄 README.md
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# lexisg-frontend-intern-test
 
-## Available Scripts
+This is a React-based simulation of a Lexi-style legal assistant UI. It allows users to:
+- Ask a legal question
+- View AI-generated legal responses
+- Click on citations to preview or open the referenced legal PDF documents
+- Simulate scroll-to-paragraph and highlight of relevant citation content
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 How to Run the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install
+npm run start
+````
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Then open: (http://localhost:3000)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🖼️ Screenshot
 
-### `npm run build`
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🔗 How Citation Linking Was Handled
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🔹 1. Citation Modal Logic
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When a user clicks a citation:
 
-### `npm run eject`
+* A popup modal opens (built with `@headlessui/react`)
+* If the citation has a `localPath`, it is embedded inside an `<iframe>` for preview
+* If the citation has a `link`, a `🔗 Click to open PDF in new tab` hyperlink is shown
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🔹 2. Scroll to Paragraph
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The simulation uses:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```html
+<iframe src="/sample.pdf#page=2" />
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+or
 
-## Learn More
+```html
+<a href="https://sharepoint-link#page=2" target="_blank">
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🔹 3. Highlight Simulation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A yellow box at the bottom of the modal shows:
 
-### Code Splitting
+```
+🔍 Highlighted: “As the age of the deceased was held to be...”
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
