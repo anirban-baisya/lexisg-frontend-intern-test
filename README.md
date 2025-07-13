@@ -61,3 +61,8 @@ A yellow box at the bottom of the modal shows:
 ```
 
 ---
+
+📍 **Live Demo:**  
+🔗 [Hosted App URL](https://lexisg-frontend-intern-test-app.netlify.app/) 
+
+---
